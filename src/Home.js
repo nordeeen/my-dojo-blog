@@ -19,7 +19,7 @@ const Home = () => {
     {
       title: "Web dev top tips",
       body: "lorem ipsum ...",
-      author: "Jhon Doe",
+      author: "Mario",
       id: 3,
     },
   ]);
@@ -28,6 +28,10 @@ const Home = () => {
     <>
       <div className="home">
         <BlogList blogs={blogs} title={"All Blogs!"} />
+        <BlogList
+          blogs={blogs.filter((blog) => blog.author === "Mario")}
+          title={"Mario's Blogs!"}
+        />
       </div>
     </>
   );
