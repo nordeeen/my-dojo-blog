@@ -1,38 +1,36 @@
 import React from "react";
 import { useState } from "react";
 
-// Multiple Components
 const Home = () => {
-  const [name, setName] = useState("luigi");
-  const [age, setAge] = useState(30);
-
-  const handleBtn = () => {
-    setName("Jhon Doe");
-    setAge(24);
-  };
-
-  // function handleClick() {
-  //   alert("hello, ninjas");
-  // }
-
-  // const handleClickAgain = (nama, e) => {
-  //   console.log(`hello, ${nama}`, e.target);
-  // };
+  const [blogs, setBlogs] = useState([
+    {
+      title: "My new website",
+      body: "lorem ipsum ...",
+      author: "Mario",
+      id: 1,
+    },
+    {
+      title: "Welcome party!",
+      body: "lorem ipsum ...",
+      author: "Yoshio",
+      id: 2,
+    },
+    {
+      title: "Web dev top tips",
+      body: "lorem ipsum ...",
+      author: "Jhon Doe",
+      id: 3,
+    },
+  ]);
 
   return (
     <div className="home">
-      <h2>Homepage</h2>
-      <p style={{ padding: "10px" }}>
-        {name} is {age} years old
-      </p>
-      <button onClick={handleBtn}>Please Click</button>
-
-      {/* <button style={{ marginLeft: "8px" }} onClick={handleClick}>
-        click me
-      </button>
-      <button onClick={(e) => handleClickAgain("Dian", e)}>
-        click me again
-      </button> */}
+      {blogs.map((blog) => (
+        <div className="blog-preview" key={blog.id}>
+          <h2>{blog.title}</h2>
+          <p>Written By {blog.author}</p>
+        </div>
+      ))}
     </div>
   );
 };
