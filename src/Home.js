@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 
 const Home = () => {
@@ -29,6 +29,11 @@ const Home = () => {
     setBlogs(newBlog);
   };
 
+  useEffect(() => {
+    console.log("use effect run");
+    console.log(blogs);
+  });
+
   return (
     <>
       <div className="home">
@@ -40,6 +45,7 @@ const Home = () => {
         <BlogList
           blogs={blogs.filter((blog) => blog.author === "Mario")}
           title={"Mario's Blogs!"}
+          handleDelete={handleDelete}
         />
       </div>
     </>
